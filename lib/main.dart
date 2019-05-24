@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  bool _hasIt = true;
   int _flutterStargazersCount, _reactnativeStargazersCount;
 
   @override
@@ -42,7 +41,9 @@ class MyHomePage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Text(
-                        _hasIt ? "Yes" : "Not Yet",
+                        _flutterStargazersCount > _reactnativeStargazersCount
+                            ? "Yes"
+                            : "Not Yet",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 70),
                       ),
