@@ -39,65 +39,72 @@ class MyHomePage extends StatelessWidget {
                       style: TextStyle(fontSize: 17),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        _flutterStargazersCount > _reactnativeStargazersCount
-                            ? "Yes"
-                            : "Not Yet",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 70),
-                      ),
-                    ),
-                    Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: FutureBuilder(
                         initialData: "Loading...",
                         future: getData(),
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
-                            return Text(
-                              _flutterStargazersCount >
-                                      _reactnativeStargazersCount
-                                  ? "Ahead by ${snapshot.data} stars!"
-                                  : "Only stars ${snapshot.data} away!",
-                              style: TextStyle(fontSize: 17),
-                            );
-                          }
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: FutureBuilder(
-                        initialData: "Loading...",
-                        future: getData(),
-                        builder: (context, snapshot) {
-                          return IntrinsicWidth(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                            return Column(
                               children: <Widget>[
-                                Container(
-                                    margin: EdgeInsets.all(8.0),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(
+                                      _flutterStargazersCount >
+                                          _reactnativeStargazersCount
+                                          ? "Yes"
+                                          : "Not Yet",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 70)),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    _flutterStargazersCount >
+                                            _reactnativeStargazersCount
+                                        ? "Ahead by ${snapshot.data} stars!"
+                                        : "Only stars ${snapshot.data} away!",
+                                    style: TextStyle(fontSize: 17),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: IntrinsicWidth(
                                     child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: <Widget>[
                                         Container(
-                                            margin: EdgeInsets.only(right: 8),
-                                            child: FlutterLogo()),
-                                        Text(
-                                          _flutterStargazersCount.toString(),
-                                          style: TextStyle(fontSize: 20),
-                                        )
+                                            margin: EdgeInsets.all(8.0),
+                                            child: Row(
+                                              children: <Widget>[
+                                                Container(
+                                                    margin: EdgeInsets.only(
+                                                        right: 8),
+                                                    child: FlutterLogo()),
+                                                Text(
+                                                  _flutterStargazersCount
+                                                      .toString(),
+                                                  style:
+                                                      TextStyle(fontSize: 20),
+                                                )
+                                              ],
+                                            )),
+                                        Container(
+                                            margin: EdgeInsets.all(8.0),
+                                            child: Text(
+                                              _reactnativeStargazersCount
+                                                  .toString(),
+                                              style: TextStyle(fontSize: 20),
+                                            ))
                                       ],
-                                    )),
-                                Container(
-                                    margin: EdgeInsets.all(8.0),
-                                    child: Text(
-                                      _reactnativeStargazersCount.toString(),
-                                      style: TextStyle(fontSize: 20),
-                                    ))
+                                    ),
+                                  ),
+                                ),
                               ],
-                            ),
-                          );
+                            );
+                          }
                         },
                       ),
                     ),
