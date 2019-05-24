@@ -55,7 +55,8 @@ class MyHomePage extends StatelessWidget {
                         builder: (context, snapshot) {
                           if (snapshot.hasData) {
                             return Text(
-                              _hasIt
+                              _flutterStargazersCount >
+                                      _reactnativeStargazersCount
                                   ? "Ahead by ${snapshot.data} stars!"
                                   : "Only stars ${snapshot.data} away!",
                               style: TextStyle(fontSize: 17),
