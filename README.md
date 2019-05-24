@@ -2,7 +2,7 @@
 
 > :dart: A [Flutter Web](https://flutter.dev/web) App to compare :left_right_arrow: GitHub stars of Flutter and React Native
 
-![Screenshot](screenshots/screenshot-1.png)
+![Screenshot](screenshots/1.png)
 
 ## Development Tools
 - [Flutter for Web](https://flutter.dev/web)
